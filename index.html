@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/jdenticon@3.1.0/dist/jdenticon.min.js" async
+        integrity="sha384-VngWWnG9GS4jDgsGEUNaoRQtfBGiIKZTiXwm9KpgAeaRn6Y/1tAFiyXqSzqC8Ga/"
+        crossorigin="anonymous">
+</script>
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <link rel='stylesheet' href='https://use.fontawesome.com/release/v5.15.3/css' integrity="sha384-SZXxX4whJ79/gErwc0Yf+zWLeJdY/
+    qpuqC4cAa9r0GUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-analytics.js"></script>
+
+
+    <title>Amazon</title>
+</head>
+<body>
+    <div class='bg-white w-full'>
+        <div class="header h-16 bg-gray-900 flex items-center">
+            <div class="logo w-1/5 h-16 ml-10 ">
+                <img class='w-28 h-16 object-contain' src="https://www.pinclipart.com/picdir/big/57-576184_view-our-amazon-logo-white-png.png" />
+            </div>
+            <input class='h-9 w-30 bg-gray-800 border-gray-500 border-oppacity-75 
+            rounded-l-xl px-3 text-white ml-6 focus:outline-none placeholder-white' 
+            type="text" id='search' placeholder="Search...">
+            <div class="categories h-9 w-30 bg-gray-800 border border-gray-500 border-oppacity-75 px-3 text-white flex items-center">
+                categories
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                  </svg>
+            </div>
+            <div class='search-icon bg-yellow-500 h-9 w-10 rounded-r-xl flex justify-center
+             items-center text-white px-3'>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                  </svg>
+            </div>
+            <!-- Right Icons -->
+            <div class="icons text-white flex items-center justify-center ml-auto mr-8 w-48 h-16 justify-around">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                  </svg>
+                  <!-- Cart Icon -->
+                  <a href='cart.html' >
+                    <div class="cart-icon h-10 w-10 bg-yellow-500 flex items-center justify-center rounded-xl relative">
+                        <div class="cart-item-number absolute -top-1 -right-1 h-4 w-4 bg-white rounded-full 
+                        flex justify-center items-center text-gray-800 text-xs
+                        ">1</div>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 " fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                        </svg>
+                    </div>
+                  </a>
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+                  </svg>
+                  <svg class='h-12 w-12 rounded-' data-jdenticon-value="Jessy"></svg>
+            </div>
+        </div>
+        <div class="main h-screen flex ">
+            <div class="main-sidebar w-1/5  p-6 bg-gray-900 border-gray-700 border-t-2">
+                <div class="sidebar-categories">
+                    <div class="sidebar-main-category bg-gray-700 rounded-lg mb-4 p-2 text-yellow-500 cursor-pointer font-bold flex">
+                        <span class='w-8'>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
+                            </svg>
+                        </span>
+                          <span>Categories</span>
+                    </div>
+                    <div class="sidebar-main-category  text-white cursor-pointer font-bold flex p-2">
+                        <span class='w-8'></span>
+                        <span>Echo and Alexa</span>
+                    </div>
+                    <div class="sidebar-main-category text-white cursor-pointer font-bold flex p-2">
+                        <span class='w-8'></span>
+                        <span>Kindle</span>
+                    </div>
+                    <div class="sidebar-main-category text-white cursor-pointer font-bold flex p-2">
+                        <span class='w-8'></span>
+                        <span>Books</span>
+                    </div>
+                    <div class="sidebar-main-category text-white cursor-pointer font-bold flex p-2">
+                        <span class='w-8'></span>
+                        <span>Electronics</span>
+                    </div>
+                    <div class="sidebar-main-category text-white cursor-pointer font-bold p-2  flex">
+                        <span class='w-8'></span>
+                        <span>Home and Garden</span>
+                    </div>
+                    <div class="sidebar-main-category text-white cursor-pointer font-bold flex p-2">
+                        <span class='w-8'></span>
+                        <span>Fashion</span>
+                    </div>
+                    <div class="sidebar-main-category text-white cursor-pointer rounded-xl
+                    hover:bg-gray-700 font-bold flex p-2 mb-4">
+                        <span class='w-8'><i class="fas fa-percent"></i></span>
+                        
+                        <span>Sell on Amazon</span>
+                    </div>
+                    <div class="sidebar-main-category text-white cursor-pointer font-bold 
+                    rounded-xl flex p-2">
+                        <span class='w-8'><i class="far fa-question-circle"></i></span>
+                        <span>Help</span>
+                    </div>
+                </div>
+            </div>
+            <div class="main-section bg-gray-100 flex-1 p-6 ">
+                <div class="main-section-banner rounded-lg h-44 flex items-end ">
+                    <div class="button bg-white w-36 h-10 rounded-full flex 
+                    justify-center items-center m-4 cursive-pointer">
+                        <h4 class='text-bold text-yellow-500'>Browse Products</h4>
+                    </div>
+                </div>
+                <div class="main-section-categories mt-10">
+                    <h1 class='popular-catergories font-bold text-gray-700 flex items-center text-2xl'>
+                        Popular categories
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-yellow-600" viewBox="0 0 20 20" fill="currentColor">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                          </svg>
+                    </h1>
+                    <div class="categories mt-5 flex ">
+                        <div class="desctop h-20 w-20 bg-white flex justify-center  ml-6 rounded-xl">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                              </svg>
+                        </div>
+                        <div class="desctop h-20 w-20 bg-white flex justify-center  ml-6 rounded-xl">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109.5 8H12zm-7 4h14M5 12a2 2 0 110-4h14a2 2 0 110 4M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7" />
+                              </svg>
+                        </div>
+                        <div class="desctop h-20 w-20 bg-white flex justify-center  ml-6 rounded-xl">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                              </svg>
+                        </div>
+                        <div class="desctop h-20 w-20 bg-white flex justify-center  ml-6 rounded-xl">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                              </svg>
+                        </div>
+                        <div class="desctop h-20 w-20 bg-white flex justify-center  ml-6 rounded-xl">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z" />
+                              </svg>
+                        </div>
+                        <div class="desctop h-20 w-20 bg-white flex justify-center  ml-6 rounded-xl">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3" />
+                              </svg>
+                        </div>
+                        <div class="desctop h-20 w-20 bg-white flex justify-center  ml-6 rounded-xl">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                              </svg>
+                        </div>
+                    </div>
+                </div>
+                <div class="main-section-deals my-5">
+                    <h1 class='text-2xl font-bold text-gray-700 mb-5'>Hot Deals </h1>
+                    <div class="main-section-products flex">
+                        <div class="main-product">
+                            <div class="product-image w-48 h-52 bg-white p-4 rounded-lg ml-3">
+                                <img class='w-full h-full object-contain ' src="https://m.media-amazon.com/images/I/61-PblYntsL._AC_SL1500_.jpg">
+                            </div>
+                            <div class="product-name text-gray-700 font-bold mt-2 text-sm">
+                                Nintendo Switch(2019)
+                            </div>
+                            <div class="product-name text-green-700 font-bold">
+                               Nintendo
+                            </div>
+                            <div class="product-rating text-yellow-300 font-bold my-1">
+                                4.5
+                            </div>
+                            <div class="product-price font-bold text-gray-700 text-lg">
+                                $290.00
+                            </div>
+                        </div>
+                        <div class="main-product">
+                            <div class="product-image w-48 h-52 bg-white p-4 rounded-lg ml-3">
+                                <img class='w-full h-full object-contain ' src="data:image/jpeg;base64,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">
+                            </div>
+                            <div class="product-name text-gray-700 font-bold mt-2 text-sm">
+                                Galaxy Watch Active(40mm)
+                            </div>
+                            <div class="product-name text-green-700 font-bold">
+                               Samsung
+                            </div>
+                            <div class="product-rating text-yellow-300 font-bold my-1">
+                                4.0
+                            </div>
+                            <div class="product-price font-bold text-gray-700 text-lg">
+                                $169.99
+                            </div>
+                        </div>
+                        <div class="main-product">
+                            <div class="product-image w-48 h-52 bg-white p-4 rounded-lg ml-3">
+                                <img class='w-full h-full object-contain ' src="data:image/jpeg;base64,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">
+                            </div>
+                            <div class="product-name text-gray-700 font-bold mt-2 text-sm">
+                                iRobot Roomba i7
+                            </div>
+                            <div class="product-name text-green-700 font-bold">
+                               IRobot
+                            </div>
+                            <div class="product-rating text-yellow-300 font-bold my-1">
+                                4.5
+                            </div>
+                            <div class="product-price font-bold text-gray-700 text-lg">
+                                $599.95
+                            </div>
+                        </div>
+                        <div class="main-product">
+                            <div class="product-image w-48 h-52 bg-white p-4 rounded-lg ml-3">
+                                <img class='w-full h-full object-contain ' src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQArHyBSL3V8nl-JVYv5qvvo-WWY6I_7DQgUA&usqp=CAU">
+                            </div>
+                            <div class="product-name text-gray-700 font-bold mt-2 text-sm">
+                               Apple MacBook Pro -13.3"
+                            </div>
+                            <div class="product-name text-green-700 font-bold">
+                               Apple
+                            </div>
+                            <div class="product-rating text-yellow-300 font-bold my-1">
+                                5.0
+                            </div>
+                            <div class="product-price font-bold text-gray-700 text-lg">
+                                $1,023.00
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div> 
+    </div>
+</body>
+</html>
